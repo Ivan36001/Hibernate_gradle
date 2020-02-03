@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/university?serverTimezone=UTC</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <property name="connection.username">root</property><!--логин к БД-->
+        <property name="connection.password">1234</property><!--пароль к БД-->
+
+        <property name="hbm2ddl.auto">update</property><!--свойство отвечающее за генерацию таблиц в БД:
+        Свойство hbm2ddl.auto возможные значения:
+        validate-проверяет схему
+        update-обновляет БД не уничтожая старые данные
+        create-удаляет все таблицы в БД и создает их заново на основе классов
+        create-drop-уничтожает схему при закрытии SessionFactory-->
+
+        <property name="show_sql">true</property><!--выводим запросы Hibernate к БД в консоль в формате SQL-->
+        <property name="format_sql">true</property><!--переносит в консоли каждую комманду SQL на новую строчку-->
+        <property name="use_sql_comments">true</property><!--добавляем комменты к  SQL запросам в консоли-->
+
+
+
+
+        <mapping class="com.hillel.webinar.hibernate.entity.Student"></mapping><!--маппинг класса программы к таблице
+        в БД (путь к классу Entity)-->
+
+        <mapping class="com.hillel.webinar.hibernate.entity.Subject"/>
+        <mapping class="com.hillel.webinar.hibernate.entity.Exam"/>
+
+    </session-factory>
+</hibernate-configuration>
